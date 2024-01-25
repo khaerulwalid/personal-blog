@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Olahraga",
+        "description": "Artikel tentang semua olahraga, tidak spesifik pada satu olahraga"
+    },
+    {
+        "name": "Bisnis",
+        "description": "Artikel tentang Kegiatan dan jenis bisnis yang ada dan sedang berkembang"
+    },
+    {
+        "name": "Teknologi",
+        "description": "Artikel tentang perkembangan dan kemajuan teknologi yang ada"
+    },
+    {
+        "name": "Makanan",
+        "description": "Artikel tentang olahan makanan dan trend makanan saat ini"
+    },
+    {
+        "name": "Opini",
+        "description": "Tulisan opini penulis terkait isu saat ini, yang lalu atau masa akan datang"
+    },
+    {
+        "name": "Travel",
+        "description": "Artikel tentang perjalanan traveling ke suatu daerah"
+    },
+    {
+        "name": "Entertainment",
+        "description": "Artikel tentang berita tokoh atau selebritis"
+    },
+    {
+        "name": "Cerita",
+        "description": "Tulisan tentang cerita rakyat atau dongeng"
+    },
+    {
+        "name": "Politik",
+        "description": "Artikel tentang politik yang sedang terjadi"
+    },
+    {
+        "name": "Sejarah",
+        "description": "Artikel tentang sejarah indonesia atau dunia"
+    },
+    {
+        "name": "Internasional",
+        "description": "Berita kejadian internasional yang menarik"
+    }
+]
