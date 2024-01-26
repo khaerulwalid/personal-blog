@@ -1,0 +1,53 @@
+<%- include("header", {title: "Author Profile"}) %>
+    <% if(name) { %>
+        <%- include("navbarDashboard", {name, role}) %>
+    <% } else { %>
+        <%- include("navbar") %>
+    <% } %>
+        
+        
+    <div class="container">
+        <div class="row justify-content-center">
+                <div class="col-6 m-4">
+                    <div class="card" style="width: 30%;">
+                        <img class="card-img-top" src="<%= el.imageUrl %>" alt="Card image cap">
+                    </div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= el.title %></h5>
+                          <a href="/?order=<%= el.Category.name %>" class="btn btn-info btn-sm"><%= el.Category.name %></a>
+                          <h6>Author : <%= el.Author.name %></h6>
+                          <p class="card-text"><%= el.body %></p>
+                          <hr>
+                          <% if(comments.length !== 0) { %>
+                                <% comments.forEach(el => { %>
+                                    <small id="emailHelp" class="form-text text-muted">Name : <b><%= el.Visitor.name %></b> => </small>
+                                    <small id="emailHelp" class="form-text text-muted"><i><%= el.body %></i></small>
+                                    <hr>
+                                <% }) %>
+                          <% } else { %>
+
+                          <% } %>
+                          
+
+                          <hr>
+                            <% if(name && role === "Visitor") { %>
+                                <form action="/<%= el.id %>/comments" method="post">
+                                    <div class="form-group mb-2">
+                                        <label for="body">Comments</label>
+                                        <textarea class="form-control" id="body" name="body" rows="3"></textarea>
+                                        <small id="emailHelp" class="form-text text-muted">Input your comments for this article</small>
+                                      </div>
+                                      
+                                      <input type="submit" value="Comment" class="btn btn-primary">
+                                </form>
+                            <% } else { %>
+                                <a href="/login" class="btn btn-primary">Login for comment</a>
+                            <% } %>
+                        </div>
+                </div>
+            
+        </div>
+    </div>
+    
+
+<%- include("footer") %>

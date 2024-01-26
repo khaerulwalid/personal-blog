@@ -1,0 +1,41 @@
+<%- include("header", {title: "Author Register"}) %>
+    <% if(name) { %>
+        <%- include("navbarDashboard", {name, role}) %>
+    <% } %>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 60px auto;">
+            <h1 class="fs-3">Edit Article</h1>
+            <form style="width: 50%;" action="/articles/<%= data.slug %>/edit" method="post">
+
+                <div class="form-group mb-2">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="<%= data.title %>">
+                </div>
+
+                <div class="form-group mb-2">
+                  <label for="body">Article</label>
+                  <textarea class="form-control" id="biography" name="body" rows="3"><%= data.body %></textarea>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="imageUrl">Image URL</label>
+                    <input type="text" class="form-control" id="imageUrl" placeholder="Enter imageUrl" name="imageUrl" value="<%= data.imageUrl %>">
+                </div>
+                
+                <div class="form-group mb-2">
+                    <label for="name">Category</label>
+                    <select class="form-control" name="CategoryId">
+                        <option selected disabled>--Select Category--</option>
+                        <% dataC.forEach(el => { %>
+                            <option value="<%= el.id %>" <%= el.id === data.CategoryId ? "selected" : "" %>><%= el.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Update Articles" class="btn btn-primary">
+              </form>
+        </div>
+    </div>
+    
+
+<%- include("footer") %>

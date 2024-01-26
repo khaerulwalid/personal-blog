@@ -1,0 +1,53 @@
+<%- include("header", {title: "Author Register"}) %>
+    <% if(name) { %>
+        <%- include("navbarDashboard", {name}) %>
+    <% } %>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 60px auto;">
+            <h1 class="fs-3"><%= name %> Articles</h1>
+            <a href="/articles/add" class="mb-4">
+                <button type="button" class="btn btn-primary">Write Article</button>
+            </a>
+            <% if(data.length !== 0) { %>
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Image Url</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                            <% data.forEach((el, i) => { %>
+                                <tr>
+                                    <th scope="row"><%= i+1 %></th>
+                                    <td><%= toUpperCase(el.title) %></td>
+                                    <td><img src="<%= el.imageUrl %>" style="width: 100px;"></td>
+                                    <td><%= el.Category.name %></td>
+                                    <td>
+                                        <a href="/articles/<%= el.slug %>/edit">
+                                            <button type="button" class="btn btn-info">Edit</button>
+                                        </a>
+        
+                                        <a href="/articles/<%= el.slug %>/delete">
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </a>
+                                    </td>
+                                  </tr>
+                            <% }) %>
+    
+                        
+                      
+                    </tbody>
+                  </table>
+            <% } else { %>
+                <p>-- No Article --</p>
+            <% } %>
+            
+        </div>
+    </div>
+    
+
+<%- include("footer") %>

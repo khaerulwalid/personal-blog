@@ -1,0 +1,43 @@
+<%- include("header", {title: "Author Profile"}) %>
+    <% if(name) { %>
+        <%- include("navbarDashboard", {name, role}) %>
+    <% } else { %>
+        <%- include("navbar") %>
+    <% } %>
+        
+        
+    <div class="container">
+        <div class="row justify-content-center">
+            <h4 class="mt-4">Author : <i><%= data[0].Author.name %></i></h4>
+            <h6 class="">Motto : <i><%= data[0].Author.Profile.motto %></i></h6>
+            <% if(name && role === "Visitor") { %>
+                <div>
+                    <% if(dataFollow) { %>
+                        <a href="/<%= data[0].Author.id %>/unfollow" class="btn btn-danger">Unfollow..</a>
+                    <% } else { %>
+                        <a href="/<%= data[0].Author.id %>/follow" class="btn btn-primary">Follow..</a>
+                    <% } %>
+                </div>
+            <% } %>
+
+
+            <% data.forEach(el => { %>
+                <div class="col-3 m-4">
+                    <div class="card" style="width: 300px;">
+                        <img class="card-img-top" src="<%= el.imageUrl %>" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= el.title %></h5>
+                          <a href="/?order=<%= el.Category.name %>" class="btn btn-info btn-sm"><%= el.Category.name %></a>
+                          <h6>Author : <a href="/<%= el.Author.id %>/authordetail"><%= el.Author.name %></a></h6>
+                          <p class="card-text"><%= el.body.slice(0, 100) %>...</p>
+                          <a href="/<%= el.slug %>" class="btn btn-primary">Read more..</a>
+                        </div>
+                      </div>
+                </div>
+            <% }) %>
+            
+        </div>
+    </div>
+    
+
+<%- include("footer") %>

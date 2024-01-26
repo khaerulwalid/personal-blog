@@ -1,0 +1,47 @@
+<%- include("header", {title: "Author Register"}) %>
+    <%- include("navbar") %>
+    <div class="container">
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 60px auto;">
+            <h1 class="fs-3">Register</h1>
+            <form style="width: 50%;" action="/register" method="post">
+                <div class="form-group mb-2">
+                  <label for="userName">Email address / Username</label>
+                  <input type="text" class="form-control" id="userName" placeholder="Enter email or username" name="userName">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter full name" name="name">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">Gender</label>
+                    <select class="form-control" name="gender">
+                        <option selected disabled>--Select Gender--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">Birth Day</label>
+                    <input type="date" class="form-control" id="birthDay" name="birthDay">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="name">Role</label>
+                    <select class="form-control" name="role">
+                        <option selected disabled>--Select Role--</option>
+                        <option value="Author">Author</option>
+                        <option value="Visitor">Visitor</option>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Register" class="btn btn-primary">
+              </form>
+        </div>
+    </div>
+    
+
+<%- include("footer") %>
